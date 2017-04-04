@@ -126,7 +126,7 @@ class ViewSet(with_metaclass(ViewSetMetaClass), object):
                 'Cannot instantiate viewset view "{}.{}". '
                 'The error was: {0}'.format(
                     self.__class__.__name__, viewset_view.name, e))
-            raise new_exception, None, trace
+            raise new_exception.with_traceback(trace)
         return view_instance
 
     def get_view_urlname(self, viewset_view):
